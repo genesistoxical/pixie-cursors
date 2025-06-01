@@ -1,0 +1,7 @@
+The LazZiya.ImageResize package adds a dependency during installation, which is:
+
+• System.Drawing.Common
+  https://www.nuget.org/packages/system.drawing.common/
+
+Under MIT license.
+https://licenses.nuget.org/MIT

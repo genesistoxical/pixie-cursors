@@ -1,0 +1,9 @@
+theme: jekyll-theme-cayman
+title: [Pixie Cursors]
+description: [s]
+show_downloads: true
+
+github:
+  zip_url: https://github.com/genesistoxical/pixie-cursors/
+  tar_url: https://github.com/genesistoxical/pixie-cursors/releases/latest/download/Pixie-Cursors-Installer.exe
+  is_project_page: false

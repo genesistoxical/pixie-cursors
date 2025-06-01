@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:properties="clr-namespace:PixieCursors.Properties"
+        xmlns:hc="https://handyorg.github.io/handycontrol" x:Class="PixieCursors.Picker"
+        mc:Ignorable="d" FontFamily="{DynamicResource NotoMusic}" TextOptions.TextRenderingMode="ClearType" TextOptions.TextFormattingMode="Display" SizeToContent="WidthAndHeight" UseLayoutRounding="True" ResizeMode="NoResize" Width="228" Height="368" MinWidth="200" MinHeight="256" WindowStartupLocation="CenterOwner" Title="{x:Static properties:Resources.ColorPickerTitle}" FontSize="11" ShowInTaskbar="False" WindowStyle="ToolWindow" Icon="/Resources/Icon.ico">
+    <Grid Height="353" Width="228">
+        <hc:ColorPicker x:Name="PickerControl" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,-1,0,0" Height="295" FontSize="11"/>
+        <Rectangle x:Name="PreviewColor" HorizontalAlignment="Left" Height="45" Margin="246,249,0,0" VerticalAlignment="Top" Width="189" Fill="Black"/>
+        <Button x:Name="Cancel" HorizontalAlignment="Left" Margin="26,310,0,0" VerticalAlignment="Top" Width="80" Height="28" Padding="10,0,10,5" Click="Cancel_Click" IsCancel="True">
+            <TextBlock>
+            <Run FontSize="12" Text="{x:Static properties:Resources.C_ancel}"/><Run Text="{x:Static properties:Resources.ancel}" FontSize="11"/>
+            </TextBlock>
+        </Button>
+        <Button x:Name="Apply" HorizontalAlignment="Left" Margin="122,310,0,0" VerticalAlignment="Top" Width="80" Height="28" Padding="10,0,10,5" Click="Apply_Click" IsDefault="True">
+            <TextBlock>
+                <Run FontSize="12" Text="{x:Static properties:Resources.A_pply}"/><Run Text="{x:Static properties:Resources.pply}" FontSize="11"/>
+            </TextBlock>
+        </Button>
+    </Grid>
+</Window>
