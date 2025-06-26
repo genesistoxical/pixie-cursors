@@ -100,6 +100,9 @@ Pixie Cursors is based on [PixelArtTool](https://github.com/unitycoder/PixelArtT
 
 *You can find all licenses [here](/src/PixieCursors/Docs).*
 
+## What's new?
+`Version 1.1.0` when opening an image smaller than 32px that is not square, it no longer looks blurry.
+
 ## License
 **MIT License**
 

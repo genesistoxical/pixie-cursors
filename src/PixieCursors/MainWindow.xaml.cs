@@ -62,7 +62,7 @@ namespace PixieCursors
 
         // settings
         private string pngName, tempFolder;
-        private bool cropImage;
+        private bool cropImage, noOpen;
         private ToolMode _currentTool = ToolMode.Draw;
         public ToolMode CurrentTool
         {
@@ -371,29 +371,35 @@ namespace PixieCursors
             // get colors
             PixelColor[,] pixels = GetPixels(img);
 
-            int width = pixels.GetLength(0);
-            int height = pixels.GetLength(1);
+            int height = pixels.GetLength(0);
+            int width = pixels.GetLength(1);
 
-            PixelColor[] palette = new PixelColor[width * height];
+            // Calcular offset para centrar la imagen
+            int offsetX = 0;
+            int offsetY = 0;
 
-            int index = 0;
-            int x;
-            int y;
-            for (y = 0; y < height; y++)
+            if (width < canvasResolutionX)
+                offsetX = (canvasResolutionX - width) / 2;
+            if (height < canvasResolutionY)
+                offsetY = (canvasResolutionY - height) / 2;
+
+            // Pintar cada pixel en la posición adecuada del canvas
+            for (int y = 0; y < height; y++)
             {
-                for (x = 0; x < width; x++)
+                for (int x = 0; x < width; x++)
                 {
-                    var c = pixels[x, y];
-                    palette[index++] = c;
-                }
-            }
+                    PixelColor color = pixels[y, x];
 
-            // put pixels on palette canvas
-            for (int i = 0, len = palette.Length; i < len; i++)
-            {
-                x = i % canvasResolutionX;
-                y = (i % len) / canvasResolutionY;
-                SetPixel(canvasBitmap, y, x, (int)palette[i].ColorBGRA);
+                    int canvasX = x + offsetX;
+                    int canvasY = y + offsetY;
+
+                    // Evitar fuera de rango
+                    if (canvasX >= 0 && canvasX < canvasResolutionX &&
+                        canvasY >= 0 && canvasY < canvasResolutionY)
+                    {
+                        SetPixel(canvasBitmap, canvasX, canvasY, (int)color.ColorBGRA);
+                    }
+                }
             }
         }
 
@@ -457,6 +463,8 @@ namespace PixieCursors
 
         private void LoadSettings()
         {
+            noOpen = false;
+
             lightColor.Red = 255;
             lightColor.Green = 255;
             lightColor.Blue = 255;
@@ -769,7 +777,16 @@ namespace PixieCursors
 
         private void OnOpenButton(object sender, RoutedEventArgs e)
         {
-            // Abrir imagen e importarla al canvas dependiendo de su tamaño.
+            // Abrir imagen e importarla al canvas dependiendo de su tamaño...
+
+            // Indica si hay un proyecto en el canvas y no debe abrirse
+            // una nueva imagen
+            if (noOpen)
+            {
+                OnNewButton(sender, null);
+                return;
+            }
+
             previousToolMode = CurrentTool;
 
             OpenFileDialog filedialog = new OpenFileDialog
@@ -791,6 +808,11 @@ namespace PixieCursors
                     if (bmpH == 32 && bmpW == 32)
                     {
                         // Importar directamente al tener 32px de ancho y alto.
+                        ImageToCanvas(pngPath);
+                    }
+                    else if (bmpH < 32 && bmpW < 32)
+                    {
+                        // Si el height y width son menores a 32px, importar directamente.
                         ImageToCanvas(pngPath);
                     }
                     else
@@ -834,12 +856,6 @@ namespace PixieCursors
                                 .Crop(32, 32)
                                 .SaveAs(tempFolder + "image.png");
                             }
-                            else if (imgW < 32 && imgH < 32)
-                            {
-                                // Si el height y width son menores a 32px, cortarlo a 32px.
-                                img.Crop(32, 32)
-                                .SaveAs(tempFolder + "image.png");
-                            }
 
                             ImageToCanvas(tempFolder + "image.png");
                             img.Dispose();
@@ -847,7 +863,7 @@ namespace PixieCursors
                         }
                     }
                 }
-
+                noOpen = true;
             }
 
             // Herramienta que evita pintar un pixel accidental al

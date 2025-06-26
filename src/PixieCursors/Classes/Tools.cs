@@ -36,13 +36,14 @@ namespace PixieCursors
         public static PixelColor[,] GetPixels(BitmapSource source)
         {
             // get pixels from source bitmap
-
             if (source.Format != PixelFormats.Bgra32)
+            {
                 source = new FormatConvertedBitmap(source, PixelFormats.Bgra32, null, 0);
+            }
 
             int width = source.PixelWidth;
             int height = source.PixelHeight;
-            PixelColor[,] result = new PixelColor[width, height];
+            PixelColor[,] result = new PixelColor[height, width];
 
             CopyPixels2(source, result, width * 4, 0, false);
             return result;

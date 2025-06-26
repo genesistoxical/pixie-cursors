@@ -102,6 +102,9 @@ Pixie Cursors está basado en [PixelArtTool](https://github.com/unitycoder/Pixel
 
 **Puedes encontrar todas las licencias [aquí](/src/PixieCursors/Docs).*
 
+## ¿Qué es lo nuevo?
+`Versión 1.1.0` al abrir una imagen menor a 32px que no es cuadrada, ya no se ve borrosa.
+
 ## Licencia
 **MIT License**
 

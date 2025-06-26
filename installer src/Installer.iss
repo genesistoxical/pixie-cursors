@@ -1,5 +1,5 @@
 ﻿#define MyAppName "Pixie Cursors"
-#define MyAppVersion "1.0.0"
+#define MyAppVersion "1.1.0"
 #define MyAppPublisher "Génesis Toxical"
 #define MyAppURL "https://genesistoxical.github.io/pixie-cursors/"
 #define MyAppExeName "Pixie Cursors.exe"
@@ -8,7 +8,7 @@
 AppId={{CF830ABE-EBC2-479C-9E76-2CE49DFF8676}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-VersionInfoVersion=1.0.0.0
+VersionInfoVersion=1.1.0.2
 AppPublisher={#MyAppPublisher}
 AppCopyright={#MyAppPublisher} © 2025
 AppPublisherURL={#MyAppURL}
