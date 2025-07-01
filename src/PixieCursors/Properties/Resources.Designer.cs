@@ -115,7 +115,7 @@ namespace PixieCursors.Properties {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a App to create your own custom cursors - v1.1.0.
+        ///   Busca una cadena traducida similar a App to create your own custom cursors - v1.4.1.
         /// </summary>
         public static string AppToCreateYourOwnCustomCursors {
             get {

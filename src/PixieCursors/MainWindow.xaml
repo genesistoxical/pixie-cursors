@@ -111,7 +111,7 @@
         <RadioButton x:Name="btnColorPicker" GroupName="Toolbar" Tag="Draw" ToolTip="{x:Static properties:Resources.ColorPicker}" Template="{DynamicResource ToggleButtonLeft}" Style="{StaticResource {x:Type ToggleButton}}" Margin="18,135,0,0" Click="OnColorPickerButton" Background="#FFC3C3C3" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,0,1,1" Width="28" Height="28">
             <Image Source="/Resources/dropper.png" Width="24" Height="24" RenderOptions.BitmapScalingMode="NearestNeighbor" />
         </RadioButton>
-        <RadioButton x:Name="btnEraser" GroupName="Toolbar" Tag="Draw" ToolTip="{x:Static properties:Resources.Eraser}" Template="{DynamicResource ToggleButtonLeft}" Style="{StaticResource {x:Type ToggleButton}}" Margin="18,173,0,0" Background="#FFC3C3C3" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,0,1,1" Width="28" Height="28" Click="OnEraserButton" Unchecked="BtnEraser_Unchecked">
+        <RadioButton x:Name="btnEraser" GroupName="Toolbar" Tag="Draw" ToolTip="{x:Static properties:Resources.Eraser}" Template="{DynamicResource ToggleButtonLeft}" Style="{StaticResource {x:Type ToggleButton}}" Margin="18,173,0,0" Background="#FFC3C3C3" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="1,0,1,1" Width="28" Height="28" Click="OnEraserButton">
             <Image Source="/Resources/edit.png" Width="24" Height="24" RenderOptions.BitmapScalingMode="NearestNeighbor" />
         </RadioButton>
         <RadioButton x:Name="btnFlipY" GroupName="Toolbar" Tag="Draw" ToolTip="{x:Static properties:Resources.FlipVertical}" Template="{DynamicResource ToggleButtonLeft}" Style="{StaticResource {x:Type ToggleButton}}"

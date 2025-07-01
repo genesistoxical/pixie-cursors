@@ -105,6 +105,8 @@ Pixie Cursors está basado en [PixelArtTool](https://github.com/unitycoder/Pixel
 ## ¿Qué es lo nuevo?
 `Versión 1.1.0` al abrir una imagen menor a 32px que no es cuadrada, ya no se ve borrosa.
 
+`Versión 1.4.1` herramienta borrador arreglada, no funcionaba. Se ha mejorado el mensaje que se muestra al abrir una imagen cuando ya hay otra abierta.
+
 ## Licencia
 **MIT License**
 
@@ -113,10 +115,10 @@ Copyright (c) 2025 Génesis Toxical ([read here](LICENSE)).
 <br>
 
 ## Related:
-`❤️ Crystal Folders` Personaliza los iconos de tus carpetas en segundos: [`Descarga`](https://genesistoxical.github.io/crystal-folders/) or [`Repositorio`](https://github.com/genesistoxical/crystal-folders).
+`❤️ Crystal Folders` Personaliza los iconos de tus carpetas en segundos: [`Descarga`](https://genesistoxical.github.io/crystal-folders/) o [`Repositorio`](https://github.com/genesistoxical/crystal-folders).
 
-`❤️ Pixie Folders` Set con seis diseños de iconos de carpetas minimalistas y editables: [`Descarga`](https://genesistoxical.github.io/pixie-folders/) or [`Repositorio`](https://github.com/genesistoxical/pixie-folders).
+`❤️ Custom Folder` Crea tu propia carpeta personalizada: [`genesistoxical.github.io/customfolder`](https://genesistoxical.github.io/customfolder/) o [`Repository`](https://github.com/genesistoxical/customfolder).
 
-`❤️ Drop Icons` Utilidad para convertir imágenes a iconos (.ico) para Windows: [`Descarga`](https://genesistoxical.github.io/drop-icons/) or [`Repositorio`](https://github.com/genesistoxical/drop-icons/).
+`❤️ Drop Icons` Utilidad para convertir imágenes a iconos (.ico) para Windows: [`Descarga`](https://genesistoxical.github.io/drop-icons/) o [`Repositorio`](https://github.com/genesistoxical/drop-icons/).
 
-`❤️ Image to Icon` Convertir imagen a icono online: [`imagetoicon.glitch.me`](https://imagetoicon.glitch.me/) or [`Repositorio`](https://github.com/genesistoxical/imagetoicon).
+`❤️ Image to Icon` Convertir imagen a icono online: [`genesistoxical.github.io/imagetoicon`](https://genesistoxical.github.io/imagetoicon/) o [`Repositorio`](https://github.com/genesistoxical/imagetoicon).

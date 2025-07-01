@@ -53,7 +53,7 @@ namespace PixieCursors
         // smart fill with double click
         private bool wasDoubleClick = false;
         private ToolMode previousToolMode = ToolMode.Draw;
-        private PixelColor previousPixelColor, previousColor;
+        private PixelColor previousPixelColor;
 
         // clear buffers
         private Int32Rect emptyRect;
@@ -463,8 +463,6 @@ namespace PixieCursors
 
         private void LoadSettings()
         {
-            noOpen = false;
-
             lightColor.Red = 255;
             lightColor.Green = 255;
             lightColor.Blue = 255;
@@ -482,6 +480,13 @@ namespace PixieCursors
             currentColor.Alpha = 255;
 
             DrawBackgroundGrid(gridBitmap, canvasResolutionX, canvasResolutionY, lightColor, darkColor, gridAlpha);
+
+            if (noOpen)
+            {
+                // Abrir dlg de imagen si anteriormente se dió clic en ese botón
+                noOpen = false;
+                OnOpenButton(null, null);
+            }
         }
 
         private void RegisterUndo()
@@ -682,10 +687,7 @@ namespace PixieCursors
                     }
                     break;
                 case ToolMode.Eraser:
-                    btnEraser.IsChecked = true;
-                    previousColor = currentColor;
-                    currentColor = eraseColor;
-                    rectCurrentColor.Fill = eraseColor.AsSolidColorBrush();
+                    ErasePixel(x, y);
                     break;
                 case ToolMode.Hotspot:
                     // En dónde dará clic en cursor
@@ -700,8 +702,6 @@ namespace PixieCursors
                     break;
                 case ToolMode.ColorPicker:
                     // Herramienta gotero
-                    btnColorPicker.IsChecked = true;
-
                     int _x = (int)(e.GetPosition(drawingImage).X / canvasScaleX);
                     int _y = (int)(e.GetPosition(drawingImage).Y / canvasScaleX);
 
@@ -711,9 +711,11 @@ namespace PixieCursors
 
                     btnColorPicker.IsChecked = false;
 
-                    // Cambia a la herramienta anterior, excepto con None y Hotspot
+                    // Cambia a la herramienta anterior, excepto con None, Hotspot y Eraser
                     // en ese caso, regresa al Draw (Brush).
-                    CurrentTool = previousToolMode != ToolMode.None && previousToolMode != ToolMode.Hotspot ? previousToolMode : ToolMode.Draw;
+                    CurrentTool = previousToolMode != ToolMode.None && previousToolMode != ToolMode.Hotspot && previousToolMode != ToolMode.Eraser
+                        ? previousToolMode
+                        : ToolMode.Draw;
                     break;
                 case ToolMode.None:
                     // Esta herramienta evita pintar un pixel accidental al importar
@@ -748,6 +750,9 @@ namespace PixieCursors
                     case ToolMode.Fill:
                         FloodFill(x, y, (int)currentColor.ColorBGRA);
                         break;
+                    case ToolMode.Eraser:
+                        ErasePixel(x, y);
+                        break;
                 }
                 prevX = x;
                 prevY = y;
@@ -779,7 +784,7 @@ namespace PixieCursors
         {
             // Abrir imagen e importarla al canvas dependiendo de su tamaño...
 
-            // Indica si hay un proyecto en el canvas y no debe abrirse
+            // Indica si hay una imagen en el canvas y no debe abrirse
             // una nueva imagen
             if (noOpen)
             {
@@ -1086,12 +1091,14 @@ namespace PixieCursors
 
         private void OnColorPickerButton(object sender, RoutedEventArgs e)
         {
+            btnColorPicker.IsChecked = true;
             previousToolMode = CurrentTool;
             CurrentTool = ToolMode.ColorPicker;
         }
 
         private void OnEraserButton(object sender, RoutedEventArgs e)
         {
+            btnEraser.IsChecked = true;
             CurrentTool = ToolMode.Eraser;
         }
 
@@ -1126,6 +1133,7 @@ namespace PixieCursors
                     eraseColor = PixelColor.Transparent;
                     break;
                 case Key.I: // color picker
+                    btnColorPicker.IsChecked = true;
                     CurrentTool = ToolMode.ColorPicker;
                     break;
                 case Key.X: // swap current/secondary colors
@@ -1139,6 +1147,7 @@ namespace PixieCursors
                     CurrentTool = ToolMode.Fill;
                     break;
                 case Key.E: // eraser
+                    btnEraser.IsChecked = true;
                     CurrentTool = ToolMode.Eraser;
                     break;
                 case Key.LeftShift: // left shift
@@ -1274,12 +1283,6 @@ namespace PixieCursors
             }
 
             lblInfo.Content = "";
-        }
-
-        private void BtnEraser_Unchecked(object sender, RoutedEventArgs e)
-        {
-            currentColor = previousColor;
-            SetCurrentColorPreviewBox(rectCurrentColor, currentColor);
         }
 
         private void CheckCropImage_Checked(object sender, RoutedEventArgs e)

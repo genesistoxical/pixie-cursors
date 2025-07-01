@@ -103,6 +103,8 @@ Pixie Cursors is based on [PixelArtTool](https://github.com/unitycoder/PixelArtT
 ## What's new?
 `Version 1.1.0` when opening an image smaller than 32px that is not square, it no longer looks blurry.
 
+`Version 1.4.1` eraser tool fixed, it wasn't working. Message displayed when opening an image while another one is already open has been improved.
+
 ## License
 **MIT License**
 
@@ -111,10 +113,10 @@ Copyright (c) 2025 Génesis Toxical ([read here](LICENSE)).
 <br>
 
 ## Related:
-`❤️ Crystal Folders` Customize your folder icons in a few seconds: [`imagetoicon.glitch.me`](https://imagetoicon.glitch.me/) or [`Repository`](https://github.com/genesistoxical/imagetoicon).
+`❤️ Crystal Folders` Customize your folder icons in a few seconds: [`Download`](https://genesistoxical.github.io/crystal-folders/) or [`Repository`](https://github.com/genesistoxical/crystal-folders).
 
-`❤️ Pixie Folders` Set of six minimalist and editable folder icon designs: [`Download`](https://genesistoxical.github.io/pixie-folders/) or [`Repository`](https://github.com/genesistoxical/pixie-folders).
+`❤️ Custom Folder` Create your own custom icon folder: [`genesistoxical.github.io/customfolder`](https://genesistoxical.github.io/customfolder/) or [`Repository`](https://github.com/genesistoxical/customfolder).
 
 `❤️ Drop Icons` Utility to convert images to icons (.ico) for Windows: [`Download`](https://genesistoxical.github.io/drop-icons/) or [`Repository`](https://github.com/genesistoxical/drop-icons/).
 
-`❤️ Image to Icon` Convert image to icon online: [`imagetoicon.glitch.me`](https://imagetoicon.glitch.me/) or [`Repository`](https://github.com/genesistoxical/imagetoicon).
+`❤️ Image to Icon` Convert image to icon online: [`genesistoxical.github.io/imagetoicon`](https://genesistoxical.github.io/imagetoicon/) or [`Repository`](https://github.com/genesistoxical/imagetoicon).
