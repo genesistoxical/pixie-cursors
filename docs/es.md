@@ -50,14 +50,14 @@ Dando click en ![Info](assets/buttons/Info.png), aparecerá una nueva ventana en
 
 ## Info
 * Este software se encuentra bajo **MIT License** ([leer texto completo](https://github.com/genesistoxical/pixie-cursors/blob/master/LICENSE){:target="_blank"}).
-* `❤️ Pixie Folders` Crea tus propios folders con este set de seis iconos editables: [Descargar](https://genesistoxical.github.io/pixie-folders/){:target="_blank"}.
-* `❤️ Image to Icon` Convertir imagen a icono online: [imagetoicon.glitch.me](https://imagetoicon.glitch.me/){:target="_blank"}.
-* `❤️ Drop Icons` Aplicación para convertir imágenes a iconos (.ico) para Windows: [Descargar](https://genesistoxical.github.io/drop-icons/){:target="_blank"}.
+* `❤️ Custom Folder` Crea tu propia carpeta personalizada: [`genesistoxical.github.io/customfolder`](https://genesistoxical.github.io/customfolder/){:target="_blank"}.
+* `❤️ Image to Icon` Convertir imagen a icono online: [`genesistoxical.github.io/imagetoicon`](https://genesistoxical.github.io/imagetoicon/){:target="_blank"}.
+* `❤️ Crystal Folders` Personaliza los iconos de tus carpetas en segundos: [`Descarga`](https://genesistoxical.github.io/crystal-folders/){:target="_blank"}.
 * Copyright (c) 2025 Génesis Toxical.
 
 <br>
 <style>
     h2.project-tagline:before {content: "Crea tus propios cursore";}
-    a.btn:nth-child(3):after {content: "er Repositorio";}
+    a.btn:nth-child(3):after {content: "escargar Bin";}
     a.btn:nth-child(4):after {content: "escargar App";}
 </style>

@@ -4,6 +4,6 @@ description: [s]
 show_downloads: true
 
 github:
-  zip_url: https://github.com/genesistoxical/pixie-cursors/
+  zip_url: https://github.com/genesistoxical/pixie-cursors/releases/download/1.4.1/Pixie-Cursors-bin-1_4_1.zip
   tar_url: https://github.com/genesistoxical/pixie-cursors/releases/latest/download/Pixie-Cursors-Installer.exe
   is_project_page: false

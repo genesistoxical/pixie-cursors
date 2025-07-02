@@ -50,14 +50,14 @@ By clicking on ![Info](assets/buttons/Info.png), a new window will appear in whi
 
 ## Info
 * This software is under **MIT License** ([read full text](https://github.com/genesistoxical/pixie-cursors/blob/master/LICENSE){:target="_blank"}).
-* `❤️ Pixie Folders` Create your own folders with this set of six editable icons: [Download](https://genesistoxical.github.io/pixie-folders/){:target="_blank"}.
-* `❤️ Image to Icon` Convert image to icon online: [imagetoicon.glitch.me](https://imagetoicon.glitch.me/){:target="_blank"}.
-* `❤️ Drop Icons` App to convert images to icons (.ico) for Windows: [Download](https://genesistoxical.github.io/drop-icons/){:target="_blank"}.
+* `❤️ Custom Folder` Create your own custom icon folder: [`genesistoxical.github.io/customfolder`](https://genesistoxical.github.io/customfolder/){:target="_blank"}.
+* `❤️ Image to Icon` Convert image to icon online: [`genesistoxical.github.io/imagetoicon`](https://genesistoxical.github.io/imagetoicon/){:target="_blank"}.
+* `❤️ Crystal Folders` Customize your folder icons in a few seconds: [`Download`](https://genesistoxical.github.io/crystal-folders/){:target="_blank"}.
 * Copyright (c) 2025 Génesis Toxical.
 
 <br>
 <style>
     h2.project-tagline:before {content: "Create your own custom cursor";}
-    a.btn:nth-child(3):after {content: "iew Repository";}
+    a.btn:nth-child(3):after {content: "ownload Bin";}
     a.btn:nth-child(4):after {content: "ownload App";}
 </style>
