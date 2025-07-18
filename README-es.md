@@ -107,6 +107,10 @@ Pixie Cursors está basado en [PixelArtTool](https://github.com/unitycoder/Pixel
 
 `Versión 1.4.1` herramienta borrador arreglada, no funcionaba. Se ha mejorado el mensaje que se muestra al abrir una imagen cuando ya hay otra abierta.
 
+`Versión 1.5.2` se arregló un pequeño problema al dar doble clic al Selector de Color. El mensaje para crear un nuevo archivo al abrir otra imagen se ha mejorado, ahora también se muestra cuando hay un diseño de cursor en el canvas.
+
+En cuanto a un problema con la compatibilidad con Windows 10 (no se abre), se compilará en esa versión para arreglarlo.
+
 ## Licencia
 **MIT License**
 

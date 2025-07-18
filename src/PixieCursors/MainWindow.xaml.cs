@@ -62,7 +62,7 @@ namespace PixieCursors
 
         // settings
         private string pngName, tempFolder;
-        private bool cropImage, noOpen;
+        private bool cropImage, clickOpen;
         private ToolMode _currentTool = ToolMode.Draw;
         public ToolMode CurrentTool
         {
@@ -480,13 +480,6 @@ namespace PixieCursors
             currentColor.Alpha = 255;
 
             DrawBackgroundGrid(gridBitmap, canvasResolutionX, canvasResolutionY, lightColor, darkColor, gridAlpha);
-
-            if (noOpen)
-            {
-                // Abrir dlg de imagen si anteriormente se dió clic en ese botón
-                noOpen = false;
-                OnOpenButton(null, null);
-            }
         }
 
         private void RegisterUndo()
@@ -575,6 +568,20 @@ namespace PixieCursors
                 }
                 ms.Close();
             }
+        }
+
+        private static bool HasCanvasPixels(WriteableBitmap source)
+        {
+            byte[] data = new byte[source.BackBufferStride * source.PixelHeight];
+            source.CopyPixels(data, source.BackBufferStride, 0);
+
+            for (int i = 3; i < data.Length; i += 4)
+            {
+                if (data[i] != 0) // Canal alfa
+                    return true;
+            }
+
+            return false;
         }
 
         private static Bitmap CreateShadow(Bitmap source)
@@ -713,7 +720,8 @@ namespace PixieCursors
 
                     // Cambia a la herramienta anterior, excepto con None, Hotspot y Eraser
                     // en ese caso, regresa al Draw (Brush).
-                    CurrentTool = previousToolMode != ToolMode.None && previousToolMode != ToolMode.Hotspot && previousToolMode != ToolMode.Eraser
+                    CurrentTool = previousToolMode != ToolMode.None && previousToolMode != ToolMode.Hotspot
+                        && previousToolMode != ToolMode.Eraser && previousToolMode != ToolMode.ColorPicker
                         ? previousToolMode
                         : ToolMode.Draw;
                     break;
@@ -784,10 +792,11 @@ namespace PixieCursors
         {
             // Abrir imagen e importarla al canvas dependiendo de su tamaño...
 
-            // Indica si hay una imagen en el canvas y no debe abrirse
+            // Indica si hay pixeles en el canvas y no debe abrirse
             // una nueva imagen
-            if (noOpen)
+            if (HasCanvasPixels(canvasBitmap))
             {
+                clickOpen = true;
                 OnNewButton(sender, null);
                 return;
             }
@@ -868,7 +877,6 @@ namespace PixieCursors
                         }
                     }
                 }
-                noOpen = true;
             }
 
             // Herramienta que evita pintar un pixel accidental al
@@ -921,6 +929,17 @@ namespace PixieCursors
                 rectCurrentColor.Fill = currentColor.AsSolidColorBrush();
                 colorPicker.SelectedBrush = (SolidColorBrush)rectCurrentColor.Fill;
                 Preview.Fill = new SolidColorBrush(Color.FromRgb(244, 244, 244));
+
+                // Abrir dlg de imagen si anteriormente se dió clic en ese botón
+                if (clickOpen)
+                {
+                    clickOpen = false;
+                    OnOpenButton(null, null);
+                }
+            }
+            else
+            {
+                clickOpen = false;
             }
         }
 

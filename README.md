@@ -105,6 +105,10 @@ Pixie Cursors is based on [PixelArtTool](https://github.com/unitycoder/PixelArtT
 
 `Version 1.4.1` eraser tool fixed, it wasn't working. Message displayed when opening an image while another one is already open has been improved.
 
+`Version 1.5.2` fixed a minor issue when double-clicking the ColorPicker. The message to create a new file when opening another image has been improved, now also displays when a cursor design is on the canvas.
+
+Regarding a Windows 10 compatibility issue (it won't open), it will be compiled on that version to fix it.
+
 ## License
 **MIT License**
 
