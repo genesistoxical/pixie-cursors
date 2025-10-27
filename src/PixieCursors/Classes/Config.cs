@@ -19,16 +19,16 @@ namespace PixieCursors
         internal static void CheckPath()
         {
             // Busca el archivo ini en la misma carpeta para saber si
-            // Drop Icons está instalado o no, incluso si se tiene una
+            // Pixie Folders está instalado o no, incluso si se tiene una
             // versión instalada y otra portable
             isIntalled = !File.Exists("Config.ini");
 
             // Establece las rutas de ini y dat, dependiendo de lo anterior
-            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Drop Icons";
+            string appdata = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Pixie Cursors";
             iniPath = isIntalled ? appdata + "\\Config.ini" : "Config.ini";
             iniLines = File.ReadAllLines(iniPath);
 
-            Console.WriteLine("Drop Icons is installed? " + isIntalled + " - ¿Drop Icons está instalado? " + isIntalled + " - Drop Icons ist installiert? " + isIntalled);
+            Console.WriteLine("Pixie Cursors is installed? " + isIntalled + " - ¿Pixie Cursors está instalado? " + isIntalled);
         }
 
         #region Language

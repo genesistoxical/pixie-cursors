@@ -111,6 +111,8 @@ Pixie Cursors está basado en [PixelArtTool](https://github.com/unitycoder/Pixel
 
 En cuanto a un problema con la compatibilidad con Windows 10 (no se abre), se compilará en esa versión para arreglarlo.
 
+`Versión 1.5.4` se solucionó el problema de que Pixie Cursors no se ejecutaba usando el instalador. Esto debido a que la ruta del archivo **Config.ini** era incorrecta cuando se intentaba obtener desde AppData.
+
 ## Licencia
 **MIT License**
 
